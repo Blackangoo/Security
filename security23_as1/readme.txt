@@ -14,6 +14,7 @@ Dependencies
 
         Python 3
         The Crypto library (you can install it using pip install pycryptodome)
+        Or run pip install -r requirements.txt
 
 ######################################################################################################################################
 
