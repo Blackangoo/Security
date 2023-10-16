@@ -1,10 +1,16 @@
 import argparse
-
 from src import asymmetric, symmetric, rsa, salt, pbkdf
 
+# Load a constant salt value used for key derivation
 cst_salt = salt.get_salt()
 
 def encrypt_symmetric(args):
+    """
+    Encrypts or decrypts a file using symmetric key encryption (ECB, CBC, or GCM modes).
+
+    Args:
+        args (argparse.Namespace): Parsed command-line arguments.
+    """
     if args.operation == 'encrypt':
         key = pbkdf.derive_key_from_password(args.passphrase, cst_salt)
         with open(args.input, 'rb') as file:
@@ -30,6 +36,12 @@ def encrypt_symmetric(args):
         decrypt_symmetric(args)
 
 def decrypt_symmetric(args):
+    """
+    Decrypts an encrypted file using symmetric key encryption.
+
+    Args:
+        args (argparse.Namespace): Parsed command-line arguments.
+    """
     key = pbkdf.derive_key_from_password(args.passphrase, cst_salt)
 
     if args.mode == 'ecb':
@@ -53,10 +65,24 @@ def decrypt_symmetric(args):
     print("The file was decrypted and saved in", args.output)
 
 def encrypt_asymmetric(args):
+    """
+    Encrypts a file using asymmetric key encryption.
+
+    Args:
+        args (argparse.Namespace): Parsed command-line arguments.
+    """
     asymmetric.asymmetric_encryption(args.public_key, args.input, args.output)
+    print("The file was encrypted and saved in", args.output)
 
 def decrypt_asymmetric(args):
+    """
+    Decrypts an encrypted file using asymmetric key encryption.
+
+    Args:
+        args (argparse.Namespace): Parsed command-line arguments.
+    """
     asymmetric.asymmetric_decryption(args.private_key, args.input, args.output)
+    print("The file was decrypted and saved in", args.output)
 
 
 if __name__ == '__main__':
