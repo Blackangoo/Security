@@ -1,19 +1,64 @@
-python3 main.py symmetric --mode ecb --operation encrypt --input tests/image.jpg --output tests/encrypted_image.jpg --passphrase mysecretpassword
+SYMMETRIC
 
-python3 main.py symmetric --mode cbc --operation encrypt --input tests/test.txt --output tests/encrypted.txt --passphrase mysecretpassword
+    ECB Encryption mode :
 
-python3 main.py symmetric --mode cbc --operation decrypt --input tests/encrypted.txt --output tests/decrypted2.txt --passphrase mysecretpassword
+        python3 main.py symmetric --mode ecb --operation encrypt --input tests/SecretImage.jpg --output tests/ECBencrypted_image.jpg --passphrase mysecretpassword
 
-python3 main.py symmetric --mode gcm --operation encrypt --input tests/test.txt --output tests/encrypted.txt --passphrase mysecretpassword
+        python3 main.py symmetric --mode ecb --operation encrypt --input tests/SecretText.txt --output tests/ECBencrypted_text.txt --passphrase mysecretpassword
 
-python3 main.py symmetric --mode gcm --operation decrypt --input tests/encrypted.txt --output tests/decrypted3.txt --passphrase mysecretpassword
+        python3 main.py symmetric --mode ecb --operation encrypt --input tests/SecretProgram.exe --output tests/ECBencrypted_program.exe --passphrase mysecretpassword
 
-python3 main.py asymmetric-encryption --public_key keys/public.txt --input tests/image.jpg --output tests/encrypted.bin
+        python3 main.py symmetric --mode ecb --operation decrypt --input tests/ECBencrypted_image.jpg --output tests/ECBdecrypted_image.jpg --passphrase mysecretpassword
 
-python3 main.py asymmetric-decryption --private_key keys/private.txt --input tests/encrypted.bin --output tests/decrypted_image.jpg
+        python3 main.py symmetric --mode ecb --operation decrypt --input tests/ECBencrypted_text.txt --output tests/ECBdecrypted_text.txt --passphrase mysecretpassword
 
-python3 main.py symmetric --mode ecb --operation encrypt --input tests/ecbisabadidea.txt --output tests/encrypted_ecbisabadidea.txt --passphrase mysecretpassword
+        python3 main.py symmetric --mode ecb --operation decrypt --input tests/ECBencrypted_program.exe --output tests/ECBdecrypted_program.exe --passphrase mysecretpassword
 
-python3 main.py asymmetric-encryption --public_key keys/public.txt --input tests/notepadd++.exe --output tests/encrypted.bin
+    ######################################################################################################################################
 
-python3 main.py asymmetric-decryption --private_key keys/private.txt --input tests/encrypted.bin --output tests/notepadd2++.exe
+    CBC Encryption mode :
+
+        python3 main.py symmetric --mode cbc --operation encrypt --input tests/SecretImage.jpg --output tests/CBCencrypted_image.jpg --passphrase mysecretpassword
+
+        python3 main.py symmetric --mode cbc --operation encrypt --input tests/SecretText.txt --output tests/CBCencrypted_text.txt --passphrase mysecretpassword
+
+        python3 main.py symmetric --mode cbc --operation encrypt --input tests/SecretProgram.exe --output tests/CBCencrypted_program.exe --passphrase mysecretpassword
+
+        python3 main.py symmetric --mode cbc --operation decrypt --input tests/CBCencrypted_image.jpg --output tests/CBCdecrypted_image.jpg --passphrase mysecretpassword
+
+        python3 main.py symmetric --mode cbc --operation decrypt --input tests/CBCencrypted_text.txt --output tests/CBCdecrypted_text.txt --passphrase mysecretpassword
+
+        python3 main.py symmetric --mode cbc --operation decrypt --input tests/CBCencrypted_program.exe --output tests/CBCdecrypted_program.exe --passphrase mysecretpassword
+
+    ######################################################################################################################################
+
+    GCM Encryption mode :
+
+        python3 main.py symmetric --mode gcm --operation encrypt --input tests/SecretImage.jpg --output tests/GCMencrypted_image.jpg --passphrase mysecretpassword
+
+        python3 main.py symmetric --mode gcm --operation encrypt --input tests/SecretText.txt --output tests/GCMencrypted_text.txt --passphrase mysecretpassword
+
+        python3 main.py symmetric --mode gcm --operation encrypt --input tests/SecretProgram.exe --output tests/GCMencrypted_program.exe --passphrase mysecretpassword
+
+        python3 main.py symmetric --mode gcm --operation decrypt --input tests/GCMencrypted_image.jpg --output tests/GCMdecrypted_image.jpg --passphrase mysecretpassword
+
+        python3 main.py symmetric --mode gcm --operation decrypt --input tests/GCMencrypted_text.txt --output tests/GCMdecrypted_text.txt --passphrase mysecretpassword
+
+        python3 main.py symmetric --mode gcm --operation decrypt --input tests/GCMencrypted_program.exe --output tests/GCMdecrypted_program.exe --passphrase mysecretpassword
+
+######################################################################################################################################
+######################################################################################################################################
+
+ASYMMETRIC
+
+    Encryption:
+
+        python3 main.py asymmetric-encryption --public_key keys/public.txt --input tests/image.jpg --output tests/encrypted.bin
+
+        python3 main.py asymmetric-encryption --public_key keys/public.txt --input tests/notepadd++.exe --output tests/encrypted.bin
+
+    Decryption:
+
+        python3 main.py asymmetric-decryption --private_key keys/private.txt --input tests/encrypted.bin --output tests/decrypted_image.jpg
+
+        python3 main.py asymmetric-decryption --private_key keys/private.txt --input tests/encrypted.bin --output tests/notepadd2++.exe
