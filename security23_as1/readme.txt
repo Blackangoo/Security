@@ -58,3 +58,6 @@ Commands
         python3 main.py symmetric --mode ecb --operation encrypt --input tests/image.jpg --output tests/encrypted_image.jpg --passphrase mysecretpassword
 
         For more examples, just look at what's inside the Examples.txt inside the tests folder.
+
+    If you want to generate a new asymmetric keypairs (WARNING IT WILL ERASE THE OLD KEYPAIRS):
+        python3 main.py asymmetric-keypairs

@@ -84,6 +84,15 @@ def decrypt_asymmetric(args):
     asymmetric.asymmetric_decryption(args.private_key, args.input, args.output)
     print("The file was decrypted and saved in", args.output)
 
+def asymmetric_keypairs(args):
+    """
+    Generate a new asymmetric-keypairs and write it in keys/private.txt and keys/public.txt.
+
+    Args:
+        args (argparse.Namespace): Parsed command-line arguments.
+    """
+    rsa.generate_keys()
+    print("A NEW KEYPAIRS WAS GENERATED")
 
 if __name__ == '__main__':
 
@@ -113,6 +122,10 @@ if __name__ == '__main__':
     parser_asymmetric_decryption.add_argument('--input', required=True, help='Path/NameOfFile you want to decrypt')
     parser_asymmetric_decryption.add_argument('--output', required=True, help='Path/NameOfFile of the decrypted file ')
     parser_asymmetric_decryption.set_defaults(func = decrypt_asymmetric)
+
+    #create the parser for the generation of a new asymmetric keypairs
+    parser_asymmetric_keypairs = subparsers.add_parser('asymmetric-keypairs')
+    parser_asymmetric_keypairs.set_defaults(func = asymmetric_keypairs)
 
     args = parser.parse_args()
     args.func(args)
