@@ -66,3 +66,7 @@ ASYMMETRIC
         python3 main.py asymmetric-decryption --private_key keys/private.txt --input tests/encrypted_text.bin --output tests/decrypted_text.txt
 
         python3 main.py asymmetric-decryption --private_key keys/private.txt --input tests/encrypted_program.bin --output tests/decrypted_program.exe
+
+######################################################################################################################################
+######################################################################################################################################
+
