@@ -1,10 +1,10 @@
 import os
 
 def clean_tests_directory():
-    directory = '.'
+    directory = 'tests/'
 
     # List of files to preserve
-    files_to_preserve = ['Examples.txt', 'SecretImage.png', 'SecretProgram.exe', 'SecretText.txt', 'clean_tests_directory.py']
+    files_to_preserve = ['Examples.txt', 'SecretImage.jpg', 'SecretProgram.exe', 'SecretText.txt', 'clean_tests_directory.py']
 
     for filename in os.listdir(directory):
         file_path = os.path.join(directory, filename)

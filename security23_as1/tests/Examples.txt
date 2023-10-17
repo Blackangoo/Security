@@ -70,3 +70,10 @@ ASYMMETRIC
 ######################################################################################################################################
 ######################################################################################################################################
 
+Clean Tests Directory:
+
+    This command will remove all the generated files from the "tests" directory.
+
+    To clean the "tests" directory, use the following command (while beeing at the root of the project):
+
+        python3 tests/clean_tests_directory.py
