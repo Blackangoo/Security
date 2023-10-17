@@ -124,7 +124,7 @@ if __name__ == '__main__':
     parser_asymmetric_decryption.set_defaults(func = decrypt_asymmetric)
 
     #create the parser for the generation of a new asymmetric keypairs
-    parser_asymmetric_keypairs = subparsers.add_parser('asymmetric-keypairs')
+    parser_asymmetric_keypairs = subparsers.add_parser('asymmetric-keypairs', help='Generate a new keypairs')
     parser_asymmetric_keypairs.set_defaults(func = asymmetric_keypairs)
 
     args = parser.parse_args()
